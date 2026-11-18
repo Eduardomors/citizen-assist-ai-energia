@@ -1,16 +1,77 @@
 {
   "aviso": "Potências e tempos de uso TÍPICOS, estimados pela equipe. A potência real está na etiqueta ou plaqueta do aparelho (em watts, W).",
   "aparelhos": [
-    {"nome": "Chuveiro elétrico (inverno)", "potencia_w": 5500, "horas_dia": 0.13, "dias_mes": 30},
-    {"nome": "Computador de mesa + monitor", "potencia_w": 250, "horas_dia": 4, "dias_mes": 30},
-    {"nome": "Notebook", "potencia_w": 65, "horas_dia": 4, "dias_mes": 30},
-    {"nome": "Videogame", "potencia_w": 150, "horas_dia": 2, "dias_mes": 30},
-    {"nome": "TV LED 32 polegadas", "potencia_w": 60, "horas_dia": 4, "dias_mes": 30},
-    {"nome": "Ventilador", "potencia_w": 100, "horas_dia": 6, "dias_mes": 30},
-    {"nome": "Ferro de passar roupa", "potencia_w": 1000, "horas_dia": 0.5, "dias_mes": 8},
-    {"nome": "Micro-ondas", "potencia_w": 1200, "horas_dia": 0.2, "dias_mes": 30},
-    {"nome": "Lâmpada LED", "potencia_w": 9, "horas_dia": 5, "dias_mes": 30},
-    {"nome": "Lâmpada incandescente (antiga)", "potencia_w": 60, "horas_dia": 5, "dias_mes": 30},
-    {"nome": "Carregador de celular", "potencia_w": 10, "horas_dia": 2, "dias_mes": 30}
+    {
+      "nome": "Chuveiro elétrico (inverno)",
+      "potencia_w": 5500,
+      "horas_dia": 0.13,
+      "dias_mes": 30
+    },
+    {
+      "nome": "Computador de mesa + monitor",
+      "potencia_w": 250,
+      "horas_dia": 4,
+      "dias_mes": 30
+    },
+    {
+      "nome": "PC gamer + monitor",
+      "potencia_w": 450,
+      "horas_dia": 4,
+      "dias_mes": 30
+    },
+    {
+      "nome": "Notebook",
+      "potencia_w": 65,
+      "horas_dia": 4,
+      "dias_mes": 30
+    },
+    {
+      "nome": "Videogame",
+      "potencia_w": 150,
+      "horas_dia": 2,
+      "dias_mes": 30
+    },
+    {
+      "nome": "TV LED 32 polegadas",
+      "potencia_w": 60,
+      "horas_dia": 4,
+      "dias_mes": 30
+    },
+    {
+      "nome": "Ventilador",
+      "potencia_w": 100,
+      "horas_dia": 6,
+      "dias_mes": 30
+    },
+    {
+      "nome": "Ferro de passar roupa",
+      "potencia_w": 1000,
+      "horas_dia": 0.5,
+      "dias_mes": 8
+    },
+    {
+      "nome": "Micro-ondas",
+      "potencia_w": 1200,
+      "horas_dia": 0.2,
+      "dias_mes": 30
+    },
+    {
+      "nome": "Lâmpada LED",
+      "potencia_w": 9,
+      "horas_dia": 5,
+      "dias_mes": 30
+    },
+    {
+      "nome": "Lâmpada incandescente (antiga)",
+      "potencia_w": 60,
+      "horas_dia": 5,
+      "dias_mes": 30
+    },
+    {
+      "nome": "Carregador de celular",
+      "potencia_w": 10,
+      "horas_dia": 2,
+      "dias_mes": 30
+    }
   ]
 }

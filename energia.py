@@ -10,6 +10,7 @@ Todas as contas usam as premissas de data/energia_premissas.json, com fonte e ti
 """
 
 import json
+import re
 import time
 from datetime import datetime
 
@@ -153,7 +154,11 @@ def recomendar(resultados, pode_instalar, vida_util):
     atual, habito, solar, assinatura = resultados[0], resultados[1], resultados[2], resultados[3]
     dicas = []
 
-    if habito["economia_ano"] > 0:
+    if habito["agua_economizada_l"] == 0 and habito["economia_ano"] > 0:
+        dicas.append(
+            f"Seus banhos já são curtos. Usar a chave na posição verão nos meses quentes economiza "
+            f"cerca de R$ {formatar(habito['economia_ano'])} por ano, sem gastar nada.")
+    elif habito["economia_ano"] > 0:
         dicas.append(
             f"1º passo (sem gastar nada): banho de até 8 min e chave no verão nos meses quentes. "
             f"Economia estimada de R$ {formatar(habito['economia_ano'])} por ano "
@@ -166,10 +171,15 @@ def recomendar(resultados, pode_instalar, vida_util):
         dicas.append(
             f"Vale pesquisar um aquecedor solar: a economia estimada paga o investimento em "
             f"{formatar(retorno[0], 1)} a {formatar(retorno[1], 1)} anos, e os coletores duram {vida_util}+ anos.")
+    elif pode_instalar and retorno and retorno[0] > vida_util:
+        dicas.append(
+            f"O aquecedor solar NÃO compensa no seu caso: levaria de {formatar(retorno[0], 1)} a "
+            f"{formatar(retorno[1], 1)} anos para se pagar, mais que a vida útil dos coletores ({vida_util} anos). "
+            f"Fique com a mudança de hábito.")
     elif pode_instalar and retorno:
         dicas.append(
-            f"O aquecedor solar levaria de {formatar(retorno[0], 1)} a {formatar(retorno[1], 1)} anos para se pagar. "
-            f"Com esse uso, pode não compensar agora.")
+            f"O aquecedor solar levaria de {formatar(retorno[0], 1)} a {formatar(retorno[1], 1)} anos para se pagar, "
+            f"perto da vida útil dos coletores ({vida_util} anos). Só vale se o orçamento vier no valor mais baixo.")
     else:
         dicas.append(
             "Como não dá para instalar nada no imóvel, a opção renovável é a energia solar por assinatura: "
@@ -183,9 +193,18 @@ def recomendar(resultados, pode_instalar, vida_util):
 # ---------------------------------------------------------------------------
 # Leitura de números (aceita vírgula e Enter para valor padrão)
 # ---------------------------------------------------------------------------
+def limpar_numero(texto):
+    """Aceita o jeito que as pessoas digitam: 'R$ 1,10', '5.500', '5500W', '12 min'."""
+    texto = texto.lower().replace("r$", "").replace("kwh", "")
+    texto = re.sub(r"[a-z\s/]", "", texto)
+    if re.fullmatch(r"\d{1,3}(\.\d{3})+", texto):  # 5.500 -> 5500 (ponto de milhar)
+        texto = texto.replace(".", "")
+    return texto.replace(",", ".")
+
+
 def ler_numero(mensagem, minimo, maximo, padrao=None):
     while True:
-        entrada = input(mensagem).strip().replace(",", ".")
+        entrada = limpar_numero(input(mensagem))
         if entrada == "" and padrao is not None:
             return padrao
         try:

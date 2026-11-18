@@ -29,7 +29,7 @@ No menu principal, opção **5. Energia: calcular e economizar na conta de luz**
 3. **Quanto a bandeira tarifária pesa na minha conta?** Acréscimo das bandeiras amarela e vermelha para o seu consumo.
 4. **Ver dados, fontes e limitações.** Lista cada premissa com valor, unidade, tipo (oficial ou estimado) e fonte.
 
-Também foram incluídas **6 orientações na categoria Energia** da base de conhecimento. Elas respondem perguntas em texto livre (menu 1), por exemplo "minha conta de luz tá alta", "vale a pena aquecedor solar?", "moro de aluguel, tem energia solar?" e "o que é bandeira vermelha", e citam os números da análise.
+Também foram incluídas **7 orientações na categoria Energia** da base de conhecimento. Elas respondem perguntas em texto livre (menu 1), por exemplo "minha conta de luz tá alta", "vale a pena aquecedor solar?", "moro de aluguel, tem energia solar?", "o que é bandeira vermelha" e "tarifa social", e citam os números da análise.
 
 Cada simulação pergunta se a explicação ficou clara e se ajuda a decidir algo. As respostas ficam em `data/simulacoes_energia.json` e entram nos indicadores (menu 3), sem nenhum dado pessoal.
 
@@ -58,7 +58,7 @@ citizen-assist-ai-energia/
 ├── energia.py                   ⚡ cálculos, comparação, recomendações e menu de energia
 ├── analise_energia.py           ⚡ gera a análise e os CSV
 ├── data/
-│   ├── base_conhecimento.json   # 20 orientações (⚡ ids 15 a 20 = categoria Energia)
+│   ├── base_conhecimento.json   # 21 orientações (⚡ ids 15 a 21 = categoria Energia)
 │   ├── energia_premissas.json   ⚡ dados, unidades, origem, fonte e tipo de cada premissa
 │   ├── aparelhos.json           ⚡ potências típicas (estimadas)
 │   └── historico.json

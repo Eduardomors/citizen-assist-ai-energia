@@ -301,9 +301,13 @@
       "conta de luz",
       "luz cara",
       "gasto de energia",
-      "gasta muita luz",
       "maior gasto",
-      "vilao da conta"
+      "vilao da conta",
+      "luz veio",
+      "conta veio",
+      "veio alta",
+      "veio cara",
+      "reais de luz"
     ],
     "resposta": "O chuveiro costuma ser o aparelho que mais gasta numa casa, porque tem potência muito alta (cerca de 5.500 W). Um banho de 12 minutos gasta 5,5 kW x 0,2 h = 1,1 kWh, cerca de R$ 1,14 com a tarifa estimada da Enel SP em 2026 (R$ 1,04/kWh com impostos). Numa casa com 4 pessoas, isso dá uns 134 kWh e R$ 139 por mês, ou R$ 1.670 por ano. Faça a conta com os seus números no menu 5.",
     "documentos": [
@@ -328,7 +332,10 @@
       "chave verao",
       "banho rapido",
       "banho curto",
-      "gastar menos luz"
+      "gastar menos luz",
+      "pagar menos luz",
+      "pagar menos de luz",
+      "economizar energia em casa"
     ],
     "resposta": "Na posição verão o chuveiro gasta cerca de 30% menos que na posição inverno. Juntando isso com banhos de até 8 minutos, uma casa com 4 pessoas que toma banhos de 12 minutos economiza em torno de 696 kWh e R$ 724 por ano (cerca de 43% do gasto com banho), sem gastar nada. Ainda economiza uns 23 mil litros de água por ano. É a primeira coisa a fazer, antes de qualquer investimento.",
     "documentos": [
@@ -376,7 +383,12 @@
       "moro de aluguel",
       "apartamento",
       "geracao compartilhada",
-      "desconto na conta"
+      "desconto na conta",
+      "divido ap",
+      "divido apartamento",
+      "dividir apartamento",
+      "republica",
+      "moro com amigos"
     ],
     "resposta": "Quem não pode instalar nada em casa pode assinar energia de uma usina solar (geração compartilhada). A usina gera créditos que abatem a sua conta da Enel, com desconto que costuma ficar entre 10% e 20%, sem obra nem investimento. Não reduz o consumo: você paga menos pela mesma energia. Antes de assinar, leia o contrato: prazo, multa de cancelamento e consumo mínimo. A ANEEL está revisando as regras dessa modalidade em 2026.",
     "documentos": [
@@ -421,7 +433,12 @@
       "videogame",
       "carregador",
       "ventilador",
-      "aparelho"
+      "aparelho",
+      "pc",
+      "pc gamer",
+      "gasta muita luz",
+      "gasta muita energia",
+      "o que e kwh"
     ],
     "resposta": "A conta é: potência (W) ÷ 1000 x horas de uso por dia x dias do mês = kWh por mês. Depois multiplique pelo preço do kWh da sua conta. Exemplo: um computador de mesa com monitor (250 W) ligado 4 horas por dia gasta 30 kWh por mês, cerca de R$ 31. Um carregador de celular gasta menos de 1 kWh por mês. Aparelhos que esquentam (chuveiro, ferro, micro-ondas) são os que mais pesam.",
     "documentos": [
@@ -430,6 +447,31 @@
     ],
     "onde": "Menu 5 (Energia) > Quanto gasta um aparelho?",
     "fonte": "https://idec.org.br/consultas/dicas-e-direitos/saiba-como-economizar-energia-eletrica",
+    "verificado_em": "2026-11-18"
+  },
+  {
+    "id": 21,
+    "categoria": "Energia",
+    "titulo": "Tarifa Social: conta de luz de graça até 80 kWh",
+    "palavras_chave": [
+      "tarifa social",
+      "baixa renda",
+      "cadunico",
+      "cad unico",
+      "luz de graca",
+      "conta de luz gratis",
+      "isencao",
+      "desconto social",
+      "luz do povo",
+      "nao consigo pagar a luz"
+    ],
+    "resposta": "Famílias de baixa renda inscritas no CadÚnico podem ter desconto de até 100% na conta de luz: quem gasta até 80 kWh por mês fica isento da energia, e o que passar disso é cobrado normalmente. Pela regra de 2026, a isenção vale para renda de até meio salário mínimo por pessoa, e quem ganha entre meio e um salário mínimo por pessoa tem desconto até 120 kWh. O benefício é automático, mas o titular da conta de luz precisa ser da família inscrita no CadÚnico e morar no mesmo município do cadastro. Se não bater, a família perde o desconto.",
+    "documentos": [
+      "Família inscrita e com cadastro atualizado no CadÚnico",
+      "Conta de luz no nome de alguém da família cadastrada"
+    ],
+    "onde": "CRAS da sua cidade (para o CadÚnico) e atendimento da Enel (para conferir a titularidade da conta)",
+    "fonte": "https://www.oliberal.com/economia/mais-de-2-4-milh-es-de-casas-precisam-renovar-desconto-na-conta-de-luz-1.1191005",
     "verificado_em": "2026-11-18"
   }
 ]
