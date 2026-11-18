@@ -25,11 +25,11 @@ Módulo de **energia e sustentabilidade** do Citizen Assist AI, o assistente em 
 No menu principal, opção **5. Energia: calcular e economizar na conta de luz**:
 
 1. **Quanto gasta um aparelho?** Escolha um aparelho (ou digite a potência da etiqueta) e veja kWh, R$ por mês e por ano e CO2, com a conta mostrada passo a passo.
-2. **Banho da casa: comparar alternativas.** Informe pessoas, minutos de banho, potência do chuveiro e preço do kWh da sua conta. O assistente mostra a tabela comparativa e as recomendações.
-3. **Quanto a bandeira tarifária pesa na minha conta?** Acréscimo das bandeiras amarela e vermelha para o seu consumo.
+2. **Banho da casa: comparar alternativas.** Informe pessoas, banhos por dia, minutos de banho, potência do chuveiro e preço do kWh da sua conta. O assistente mostra um resumo com o gasto de hoje e as recomendações; a tabela comparativa completa aparece se você pedir.
+3. **Quanto a bandeira tarifária pesa na minha conta?** Acréscimo das bandeiras amarela, vermelha 1 e vermelha 2 para o seu consumo.
 4. **Ver dados, fontes e limitações.** Lista cada premissa com valor, unidade, tipo (oficial ou estimado) e fonte.
 
-Também foram incluídas **7 orientações na categoria Energia** da base de conhecimento. Elas respondem perguntas em texto livre (menu 1), por exemplo "minha conta de luz tá alta", "vale a pena aquecedor solar?", "moro de aluguel, tem energia solar?", "o que é bandeira vermelha" e "tarifa social", e citam os números da análise.
+Também foram incluídas **8 orientações na categoria Energia** da base de conhecimento. Elas respondem perguntas em texto livre (menu 1), por exemplo "minha conta de luz tá alta", "vale a pena aquecedor solar?", "moro de aluguel, tem energia solar?", "o que é bandeira vermelha", "tarifa social" e "a conta aumentou sem eu mudar nada", e citam os números da análise.
 
 Cada simulação pergunta se a explicação ficou clara e se ajuda a decidir algo. As respostas ficam em `data/simulacoes_energia.json` e entram nos indicadores (menu 3), sem nenhum dado pessoal.
 
@@ -44,7 +44,7 @@ python main.py              # assistente (opção 5 = Energia)
 python analise_energia.py   # refaz todos os cálculos e gera os CSV da análise
 ```
 
-**Teste rápido:** menu 5 > 2 > 4 pessoas > Enter (12 min) > Enter (5.500 W) > Enter (R$ 1,04) > s. Deve aparecer a tabela da seção "Resultado" abaixo.
+**Teste rápido:** menu 5 > 2 > 4 pessoas > Enter (1 banho) > Enter (12 min) > Enter (5.500 W) > Enter (R$ 1,04) > s > s (ver tabela). Deve aparecer a tabela da seção "Cálculos e comparação" abaixo.
 
 ## Estrutura
 
@@ -58,7 +58,7 @@ citizen-assist-ai-energia/
 ├── energia.py                   ⚡ cálculos, comparação, recomendações e menu de energia
 ├── analise_energia.py           ⚡ gera a análise e os CSV
 ├── data/
-│   ├── base_conhecimento.json   # 21 orientações (⚡ ids 15 a 21 = categoria Energia)
+│   ├── base_conhecimento.json   # 22 orientações (⚡ ids 15 a 22 = categoria Energia)
 │   ├── energia_premissas.json   ⚡ dados, unidades, origem, fonte e tipo de cada premissa
 │   ├── aparelhos.json           ⚡ potências típicas (estimadas)
 │   └── historico.json
@@ -109,7 +109,7 @@ Para quem mora sozinho, o aquecedor solar leva de 10 a 30 anos para se pagar, en
 
 ## Testes com usuários
 
-Situações testadas, comentários e ajustes: [docs/energia/TESTES_USUARIOS.md](docs/energia/TESTES_USUARIOS.md).
+Testamos pessoalmente com **3 pessoas de fora da equipe**, em 6 situações do dia a dia. Todas acharam a explicação clara e útil (nota média de facilidade 4,0 de 5), mas duas acharam a tabela pesada, e os testes revelaram 8 problemas, todos corrigidos. Os principais: a simulação passou a mostrar um resumo antes da tabela, a perguntar quantos banhos cada pessoa toma por dia e a explicar por que a conta pode subir sem mudança de hábito. Detalhes em [docs/energia/TESTES_USUARIOS.md](docs/energia/TESTES_USUARIOS.md).
 
 ## Referências
 

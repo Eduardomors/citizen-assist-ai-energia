@@ -1,4 +1,19 @@
 {
-  "atendimentos": [],
-  "notas_facilidade": []
+  "atendimentos": [
+    {
+      "data": "2026-11-18 16:48:53",
+      "origem": "pergunta",
+      "pergunta": "Minha conta de luz veio quase R$ 200 mais cara que nos meses anteriores, mas não mudei minha rotina nem comprei novos aparelhos. O que pode estar causando esse aumento no consumo de energia?",
+      "id_orientacao": 15,
+      "encontrou": true,
+      "ajudou": true,
+      "tentativas": 2,
+      "tempo_segundos": 454.6
+    }
+  ],
+  "notas_facilidade": [
+    3,
+    4,
+    5
+  ]
 }

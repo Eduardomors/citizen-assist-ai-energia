@@ -30,9 +30,9 @@ Todos os valores ficam em `data/energia_premissas.json`, com unidade, origem, fo
 | Vida útil dos coletores | 15 anos | Estimado | Idec (15 a 25 anos) |
 | Desconto da assinatura solar | 10% a 20% (média 15%) | Estimado | Folhapress |
 | Fator de emissão da rede | 0,0599 kg CO2eq/kWh | Oficial | BEN 2025 (EPE), ano-base 2024 |
-| Bandeiras amarela / vermelha 1 | R$ 1,885 / R$ 4,463 por 100 kWh | Oficial | ANEEL |
+| Bandeiras amarela / vermelha 1 / vermelha 2 | R$ 1,885 / R$ 4,463 / R$ 7,877 por 100 kWh | Oficial | ANEEL |
 
-**Cenário de referência (premissa da equipe):** casa com 4 pessoas, 1 banho por dia de 12 minutos, chuveiro de 5.500 W, **período de 1 ano (365 dias)**. Para o aquecedor solar também olhamos 10 anos. No assistente, a pessoa troca esses valores pelos dela.
+**Cenário de referência (premissa da equipe):** casa com 4 pessoas, 1 banho por pessoa por dia, de 12 minutos, chuveiro de 5.500 W, **período de 1 ano (365 dias)**. Para o aquecedor solar também olhamos 10 anos. No assistente, a pessoa troca esses valores pelos dela.
 
 ## 3. Cálculos
 
@@ -130,3 +130,5 @@ Por isso a ordem das recomendações é:
 - O Setor Elétrico - BEN 2025 (59,9 kg CO2eq/MWh): https://www.osetoreletrico.com.br/?p=164398
 - Bandeira amarela 2026 (R$ 1,885/100 kWh) e bandeira verde em novembro: https://tagdlaw.com.br/?p=16921
 - Canal Solar - Bandeira vermelha 1 (R$ 4,463/100 kWh): https://canalsolar.com.br/conta-luz-ficara-mais-cara-sao-paulo/
+- Diário do Comércio / Folhapress - Bandeira vermelha 2 (R$ 7,877/100 kWh): https://diariodocomercio.com.br/economia/conta-luz-aumenta-bandeira-vermelha-economizar/
+- Idec - Você entende sua conta de luz? (dias cobrados e leitura): https://idec.org.br/print/26995

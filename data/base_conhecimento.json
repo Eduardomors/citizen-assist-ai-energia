@@ -411,7 +411,7 @@
       "bandeira verde",
       "conta aumentou"
     ],
-    "resposta": "A bandeira é um valor extra cobrado quando produzir energia fica mais caro, por exemplo quando chove pouco e as termelétricas são ligadas. Na verde não há cobrança extra (novembro de 2026 está verde). Na amarela são R$ 1,885 a mais a cada 100 kWh e na vermelha patamar 1, R$ 4,463 a cada 100 kWh. Para uma casa que gasta 200 kWh por mês, a vermelha 1 soma uns R$ 8,93 no mês, sem contar impostos.",
+    "resposta": "A bandeira é um valor extra cobrado quando produzir energia fica mais caro, por exemplo quando chove pouco e as termelétricas são ligadas. Na verde não há cobrança extra (novembro de 2026 está verde). Na amarela são R$ 1,885 a mais a cada 100 kWh, na vermelha patamar 1 são R$ 4,463 e na vermelha patamar 2, R$ 7,877. Para uma casa que gasta 200 kWh por mês, a vermelha 1 soma uns R$ 8,93 no mês, sem contar impostos.",
     "documentos": [
       "Sua conta de luz (o consumo do mês em kWh)"
     ],
@@ -472,6 +472,32 @@
     ],
     "onde": "CRAS da sua cidade (para o CadÚnico) e atendimento da Enel (para conferir a titularidade da conta)",
     "fonte": "https://www.oliberal.com/economia/mais-de-2-4-milh-es-de-casas-precisam-renovar-desconto-na-conta-de-luz-1.1191005",
+    "verificado_em": "2026-11-18"
+  },
+  {
+    "id": 22,
+    "categoria": "Energia",
+    "titulo": "A conta de luz aumentou sem eu mudar nada",
+    "palavras_chave": [
+      "aumentou",
+      "aumento",
+      "subiu",
+      "mais cara que",
+      "mais caro que",
+      "nao mudei",
+      "mesma rotina",
+      "sem mudar",
+      "nao comprei",
+      "veio mais cara",
+      "veio mais alta"
+    ],
+    "resposta": "Se a conta subiu sem você mudar a rotina, confira estes pontos na própria conta: 1) a bandeira tarifária do mês: na vermelha patamar 2 são R$ 7,877 a mais a cada 100 kWh; 2) o reajuste anual: a tarifa residencial da Enel SP subiu 9,02% em julho de 2026; 3) o número de dias cobrados: um mês com mais dias entre uma leitura e outra cobra mais kWh; 4) o frio: no inverno o chuveiro fica na posição inverno e os banhos ficam mais longos; 5) um aparelho com defeito ou ligado sem você perceber. Compare os kWh (não só os reais) com os meses anteriores. Se o consumo em kWh subiu muito sem motivo, anote o número do medidor e peça uma revisão à Enel.",
+    "documentos": [
+      "As últimas contas de luz (para comparar kWh, dias cobrados e bandeira)",
+      "O número que aparece no medidor de energia"
+    ],
+    "onde": "Na própria conta de luz. Para pedir revisão: atendimento da Enel SP",
+    "fonte": "https://idec.org.br/print/26995",
     "verificado_em": "2026-11-18"
   }
 ]

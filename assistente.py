@@ -24,7 +24,11 @@ def ler_opcao(mensagem, minimo, maximo):
         if entrada == "":
             print("Resposta vazia. Digite um número.")
         elif not entrada.isdigit():
-            print("Opção inválida: digite apenas números.")
+            if any(caractere.isalpha() for caractere in entrada) and len(entrada) > 3:
+                print("Aqui é só o número da opção (ex.: 2). Para escrever sua dúvida com "
+                      "suas palavras, volte ao menu principal e escolha 1.")
+            else:
+                print("Opção inválida: digite apenas números.")
         elif not minimo <= int(entrada) <= maximo:
             print(f"Opção fora da faixa. Escolha de {minimo} a {maximo}.")
         else:

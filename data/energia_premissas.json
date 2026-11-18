@@ -38,7 +38,7 @@
       "fonte": "https://idec.org.br/dicas-e-direitos/economia-com-aquecedor-solar"
     },
     "reducao_posicao_verao": {
-      "valor": 0.30,
+      "valor": 0.3,
       "unidade": "fração (30%)",
       "tipo": "oficial (orientação de órgão de defesa do consumidor/distribuidora)",
       "origem": "Na posição verão o chuveiro consome cerca de 30% menos que na posição inverno.",
@@ -59,7 +59,7 @@
       "fonte": "https://www.cemig.com.br/wp-content/uploads/2025/09/Cartilha-Eficiencia-Energetica-Saiba-como-economizar-energia.pdf"
     },
     "fracao_solar": {
-      "valor": 0.70,
+      "valor": 0.7,
       "unidade": "fração (70%)",
       "tipo": "estimado (valor de projeto)",
       "origem": "Fração solar anual de 70% usada no dimensionamento pela ABNT NBR 15569; estudo com EnergyPlus mediu redução média de 70% na energia para aquecer água.",
@@ -87,14 +87,14 @@
       "fonte": "https://idec.org.br/dicas-e-direitos/economia-com-aquecedor-solar"
     },
     "desconto_assinatura_min": {
-      "valor": 0.10,
+      "valor": 0.1,
       "unidade": "fração (10%)",
       "tipo": "estimado (faixa de mercado)",
       "origem": "Energia solar por assinatura (geração compartilhada) costuma dar de 10% a 20% de desconto.",
       "fonte": "https://www.acessa.com/economia/2023/06/amp/154724-veja-os-pros-e-contras-do-servico-de-energia-solar-por-assinatura.html"
     },
     "desconto_assinatura_max": {
-      "valor": 0.20,
+      "valor": 0.2,
       "unidade": "fração (20%)",
       "tipo": "estimado (faixa de mercado)",
       "origem": "Energia solar por assinatura (geração compartilhada) costuma dar de 10% a 20% de desconto.",
@@ -120,6 +120,13 @@
       "tipo": "oficial",
       "origem": "Acréscimo da bandeira vermelha patamar 1: R$ 4,463 a cada 100 kWh (ANEEL).",
       "fonte": "https://canalsolar.com.br/conta-luz-ficara-mais-cara-sao-paulo/"
+    },
+    "bandeira_vermelha2_kwh": {
+      "valor": 0.07877,
+      "unidade": "R$/kWh",
+      "tipo": "oficial",
+      "origem": "Acréscimo da bandeira vermelha patamar 2: R$ 7,877 a cada 100 kWh (ANEEL).",
+      "fonte": "https://diariodocomercio.com.br/economia/conta-luz-aumenta-bandeira-vermelha-economizar/"
     },
     "calor_especifico_agua": {
       "valor": 4186,

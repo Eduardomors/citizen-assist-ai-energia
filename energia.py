@@ -83,7 +83,7 @@ class Premissas:
         return self.tarifa_sem_tributos() / (1 - tributos)
 
 
-def comparar_alternativas(pessoas, minutos, potencia_w, tarifa, premissas):
+def comparar_alternativas(pessoas, minutos, potencia_w, tarifa, premissas, banhos_dia=1):
     """Compara alternativas para a MESMA necessidade (banho quente da casa) em 1 ano.
 
     Retorna uma lista de dicionários, um por cenário.
@@ -93,7 +93,8 @@ def comparar_alternativas(pessoas, minutos, potencia_w, tarifa, premissas):
     vazao = vazao_l_min(potencia_w, p("calor_especifico_agua"), p("delta_t_banho"))
 
     # Situação atual
-    horas_ano = pessoas * minutos / 60 * DIAS_ANO
+    banhos_ano = pessoas * banhos_dia * DIAS_ANO
+    horas_ano = banhos_ano * minutos / 60
     base_kwh = energia_kwh(potencia_w, horas_ano)
     base_custo = base_kwh * tarifa
 
@@ -101,8 +102,8 @@ def comparar_alternativas(pessoas, minutos, potencia_w, tarifa, premissas):
     minutos_a = min(minutos, p("minutos_banho_meta"))
     fracao_meses_verao = p("meses_posicao_verao") / 12
     fator_verao = fracao_meses_verao * (1 - p("reducao_posicao_verao")) + (1 - fracao_meses_verao)
-    a_kwh = energia_kwh(potencia_w, pessoas * minutos_a / 60 * DIAS_ANO) * fator_verao
-    agua_a = (minutos - minutos_a) * vazao * pessoas * DIAS_ANO
+    a_kwh = energia_kwh(potencia_w, banhos_ano * minutos_a / 60) * fator_verao
+    agua_a = (minutos - minutos_a) * vazao * banhos_ano
 
     # B) Aquecedor solar de água (fonte renovável) com o chuveiro como apoio
     b_kwh = base_kwh * (1 - p("fracao_solar"))
@@ -195,7 +196,8 @@ def recomendar(resultados, pode_instalar, vida_util):
 # ---------------------------------------------------------------------------
 def limpar_numero(texto):
     """Aceita o jeito que as pessoas digitam: 'R$ 1,10', '5.500', '5500W', '12 min'."""
-    texto = texto.lower().replace("r$", "").replace("kwh", "")
+    texto = re.sub(r"\(.*?\)", "", texto.lower())  # '5500 W (5,5 kW)' -> '5500 W'
+    texto = texto.replace("r$", "").replace("kwh", "").rstrip(". ")
     texto = re.sub(r"[a-z\s/]", "", texto)
     if re.fullmatch(r"\d{1,3}(\.\d{3})+", texto):  # 5.500 -> 5500 (ponto de milhar)
         texto = texto.replace(".", "")
@@ -282,10 +284,13 @@ class ModuloEnergia:
                 return
             if opcao == 1:
                 self.consumo_aparelho()
+                print("\n(Você continua no menu de Energia: escolha outra opção ou 0 para voltar.)")
             elif opcao == 2:
                 self.comparar_banho()
+                print("\n(Você continua no menu de Energia: escolha outra opção ou 0 para voltar.)")
             elif opcao == 3:
                 self.bandeiras()
+                print("\n(Você continua no menu de Energia: escolha outra opção ou 0 para voltar.)")
             else:
                 self.mostrar_premissas()
 
@@ -339,6 +344,7 @@ class ModuloEnergia:
         print("\n=== Banho da casa: comparar alternativas ===")
         print("O chuveiro elétrico costuma ser o aparelho que mais gasta numa casa.")
         pessoas = int(ler_numero("Quantas pessoas tomam banho na sua casa? ", 1, 15))
+        banhos_dia = ler_numero("Quantos banhos cada pessoa toma por dia? (Enter = 1) ", 1, 5, 1)
         minutos = ler_numero("Quantos minutos dura cada banho, em média? (Enter = 12) ", 1, 60, 12)
         padrao_w = self.premissas.valor("potencia_chuveiro_w")
         potencia = ler_numero(f"Potência do chuveiro em watts (Enter = {formatar(padrao_w, 0)} W, o mais comum): ",
@@ -346,8 +352,11 @@ class ModuloEnergia:
         tarifa = self.ler_tarifa()
         pode_instalar = ler_sim_nao("A casa é própria ou o dono deixaria instalar algo no telhado? (s/n): ")
 
-        resultados = comparar_alternativas(pessoas, minutos, potencia, tarifa, self.premissas)
-        self.exibir_tabela(resultados)
+        resultados = comparar_alternativas(pessoas, minutos, potencia, tarifa, self.premissas, banhos_dia)
+        atual = resultados[0]
+        print("\n=== Resumo ===")
+        print(f"Hoje o banho da casa custa cerca de R$ {formatar(atual['custo_ano'], 0)} por ano "
+              f"(R$ {formatar(atual['custo_ano'] / 12, 0)} por mês). Valores estimados.")
 
         print("\n--- O que recomendamos para você ---")
         vida_util = int(self.premissas.valor("vida_util_coletor_anos"))
@@ -359,19 +368,22 @@ class ModuloEnergia:
             print(f"* Bônus: banhos mais curtos também economizam cerca de "
                   f"{formatar(habito['agua_economizada_l'] / 1000, 1)} mil litros de água por ano.")
 
-        print("\nAtenção (limitações):")
-        for limite in LIMITACOES[:4]:
-            print(f"  - {limite}")
-        print("Fontes e premissas completas: opção 4 do menu de Energia.")
+        if ler_sim_nao("\nQuer ver a tabela comparando todas as alternativas? (s/n): "):
+            self.exibir_tabela(resultados, pode_instalar)
+
+        print("\nAtenção: são estimativas, não economia garantida. "
+              "Veja fontes e limitações na opção 4 do menu de Energia.")
 
         melhor = max(resultados[1:], key=lambda r: r["economia_ano"])
-        self._salvar_simulacao("banho", {"pessoas": pessoas, "minutos": minutos, "potencia_w": potencia,
+        self._salvar_simulacao("banho", {"pessoas": pessoas, "banhos_dia": banhos_dia, "minutos": minutos, "potencia_w": potencia,
                                          "tarifa": tarifa, "pode_instalar": pode_instalar},
                                {"kwh_ano_atual": round(resultados[0]["kwh_ano"], 1),
                                 "maior_economia": melhor["nome"],
                                 "economia_ano": round(melhor["economia_ano"], 2)}, inicio)
 
-    def exibir_tabela(self, resultados):
+    def exibir_tabela(self, resultados, pode_instalar=True):
+        if not pode_instalar:
+            resultados = [r for r in resultados if r["investimento"] is None]
         print(f"\nPeríodo de referência: 1 ano ({DIAS_ANO} dias). Valores ESTIMADOS.")
         print(f"{'Alternativa':<38}{'kWh/ano':>8}{'R$/ano':>9}{'Economia':>11}{'Investimento':>17}{'Retorno':>17}{'CO2 evitado':>13}")
         print("-" * 113)
@@ -391,9 +403,13 @@ class ModuloEnergia:
             marca = " (renov.)" if r["renovavel"] else ""
             print(f"{(r['nome'] + marca)[:37]:<38}{formatar(r['kwh_ano'], 0):>8}{formatar(r['custo_ano'], 0):>9}"
                   f"{economia:>11}{invest:>17}{retorno:>17}{co2:>13}")
-        print("\nComo ler: 'Retorno' é quanto tempo a economia leva para pagar o investimento.")
-        for r in resultados[1:4]:
-            print(f"  {r['nome']}: {r['viabilidade']}")
+        print("\nComo ler: 'Economia' é quanto você deixa de gastar por ano em relação a hoje. "
+              "'Retorno' é quanto tempo a economia leva para pagar o investimento.")
+        if not pode_instalar:
+            print("O aquecedor solar não aparece porque você disse que não pode instalar nada no imóvel.")
+        for r in resultados[1:]:
+            if r["nome"] != "A + B juntos":
+                print(f"  {r['nome']}: {r['viabilidade']}")
 
     # ---- 3. Bandeiras tarifárias ----
     def bandeiras(self):
@@ -404,13 +420,17 @@ class ModuloEnergia:
                              1, 5000, 200)
         amarela = consumo * self.premissas.valor("bandeira_amarela_kwh")
         vermelha = consumo * self.premissas.valor("bandeira_vermelha1_kwh")
+        vermelha2 = consumo * self.premissas.valor("bandeira_vermelha2_kwh")
         print(f"Bandeira verde: R$ 0,00 a mais")
         print(f"Bandeira amarela: + R$ {formatar(amarela)} no mês (sem contar impostos)")
         print(f"Bandeira vermelha 1: + R$ {formatar(vermelha)} no mês (sem contar impostos)")
+        print(f"Bandeira vermelha 2: + R$ {formatar(vermelha2)} no mês (sem contar impostos)")
+        print("A bandeira do mês aparece escrita na sua conta de luz.")
         print("Dica: em meses de bandeira vermelha, cortar minutos de banho compensa ainda mais.")
         print("A cor da bandeira de cada mês é divulgada pela ANEEL no fim do mês anterior.")
         self._salvar_simulacao("bandeira", {"consumo_kwh": consumo},
-                               {"amarela": round(amarela, 2), "vermelha1": round(vermelha, 2)}, inicio)
+                               {"amarela": round(amarela, 2), "vermelha1": round(vermelha, 2),
+                                "vermelha2": round(vermelha2, 2)}, inicio)
 
     # ---- 4. Premissas, fontes e limitações ----
     def mostrar_premissas(self):

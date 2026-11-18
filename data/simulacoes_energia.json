@@ -1,0 +1,91 @@
+[
+  {
+    "data": "2026-11-18 16:56:23",
+    "tipo": "banho",
+    "entradas": {
+      "pessoas": 4,
+      "minutos": 15.0,
+      "potencia_w": 5500.0,
+      "tarifa": 1.04,
+      "pode_instalar": true
+    },
+    "resultado": {
+      "kwh_ano_atual": 2007.5,
+      "maior_economia": "A + B juntos",
+      "economia_ano": 1803.86
+    },
+    "clara": true,
+    "util": true,
+    "tempo_segundos": 102.8
+  },
+  {
+    "data": "2026-11-18 17:01:33",
+    "tipo": "banho",
+    "entradas": {
+      "pessoas": 4,
+      "minutos": 10.0,
+      "potencia_w": 5500.0,
+      "tarifa": 1.04,
+      "pode_instalar": false
+    },
+    "resultado": {
+      "kwh_ano_atual": 1338.3,
+      "maior_economia": "A + B juntos",
+      "economia_ano": 1107.93
+    },
+    "clara": true,
+    "util": true,
+    "tempo_segundos": 120.5
+  },
+  {
+    "data": "2026-11-18 17:07:07",
+    "tipo": "aparelho",
+    "entradas": {
+      "aparelho": "Videogame",
+      "potencia_w": 150.0,
+      "horas_dia": 4.0,
+      "dias_mes": 27.0,
+      "tarifa": 1.04
+    },
+    "resultado": {
+      "kwh_mes": 16.2,
+      "custo_mes": 16.85
+    },
+    "clara": true,
+    "util": true,
+    "tempo_segundos": 151.9
+  },
+  {
+    "data": "2026-11-18 17:09:58",
+    "tipo": "banho",
+    "entradas": {
+      "pessoas": 3,
+      "minutos": 15.0,
+      "potencia_w": 5500.0,
+      "tarifa": 1.04,
+      "pode_instalar": true
+    },
+    "resultado": {
+      "kwh_ano_atual": 1505.6,
+      "maior_economia": "A + B juntos",
+      "economia_ano": 1352.89
+    },
+    "clara": true,
+    "util": true,
+    "tempo_segundos": 38.9
+  },
+  {
+    "data": "2026-11-18 17:12:37",
+    "tipo": "bandeira",
+    "entradas": {
+      "consumo_kwh": 200.0
+    },
+    "resultado": {
+      "amarela": 3.77,
+      "vermelha1": 8.93
+    },
+    "clara": true,
+    "util": true,
+    "tempo_segundos": 37.6
+  }
+]
