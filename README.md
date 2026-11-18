@@ -117,4 +117,4 @@ Lista completa, com links, em [docs/energia/ANALISE_ENERGIA.md](docs/energia/ANA
 
 ## Vídeo técnico
 
-[link do vídeo no YouTube - não listado]
+https://youtu.be/QPbxrW_D0N4
