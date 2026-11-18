@@ -1,0 +1,6 @@
+nome,renovavel,kwh_ano,custo_ano,economia_ano,investimento_min,investimento_max,retorno_min_anos,retorno_max_anos,economia_10_anos,co2_evitado_kg,agua_economizada_l,viabilidade
+Situação atual (chuveiro elétrico),não,1606.0,1670.24,0.0,0,0,,,0.0,0.0,0,É o que a casa já faz hoje.
+A) Banho de 8 min + posição verão,não,910.1,946.47,723.77,0,0,,,7237.71,41.7,23020,Sem custo e começa hoje. Depende só do hábito de todos da casa.
+B) Aquecedor solar de água,sim,481.8,501.07,1169.17,3000,6000,2.6,5.1,7191.68,67.3,0,"Precisa de telhado com sol, caixa d'água e autorização do dono do imóvel."
+C) Solar por assinatura,sim,1606.0,1419.7,250.54,0,0,,,2505.36,0.0,0,"Sem obra, bom para quem aluga. Exige contrato (veja prazo, multa e consumo mínimo)."
+A + B juntos,sim,273.0,283.94,1386.3,3000,6000,2.2,4.3,9362.99,79.8,23020,"Mesma exigência do aquecedor solar, somada à mudança de hábito."

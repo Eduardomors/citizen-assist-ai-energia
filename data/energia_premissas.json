@@ -1,0 +1,139 @@
+{
+  "verificado_em": "2026-11-18",
+  "periodo_referencia": "12 meses (1 ano); investimento avaliado em 10 anos",
+  "premissas": {
+    "tarifa_b1_2025_sem_tributos": {
+      "valor": 0.72518,
+      "unidade": "R$/kWh",
+      "tipo": "oficial",
+      "origem": "Tarifa B1 residencial da Enel SP homologada pela ANEEL em 2025 (R$ 725,18/MWh), sem tributos.",
+      "fonte": "https://exame.com/economia/conta-de-luz-sp-aumento-enel-reajuste-tarifa-aneel-julho"
+    },
+    "reajuste_b1_2026": {
+      "valor": 0.0902,
+      "unidade": "fração (9,02%)",
+      "tipo": "oficial",
+      "origem": "Reajuste da classe residencial B1 da Enel SP aprovado pela ANEEL em 30/06/2026, vigente desde 04/07/2026.",
+      "fonte": "https://cenarioenergia.com.br/2026/06/30/aneel-aprova-reajuste-da-enel-sao-paulo-com-efeito-medio-de-1018/"
+    },
+    "icms": {
+      "valor": 0.18,
+      "unidade": "fração (18%)",
+      "tipo": "estimado",
+      "origem": "Alíquota de ICMS mais comum nas contas residenciais da Enel SP acima de 200 kWh/mês (contas menores podem ter 12%). Confira na sua conta.",
+      "fonte": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp194.htm"
+    },
+    "pis_cofins": {
+      "valor": 0.059,
+      "unidade": "fração (~5,9%)",
+      "tipo": "estimado",
+      "origem": "PIS/PASEP + COFINS variam todo mês (cerca de 1% + 4,9%). Valor médio adotado pela equipe.",
+      "fonte": "Campo 'PIS/COFINS' da própria conta de luz"
+    },
+    "potencia_chuveiro_w": {
+      "valor": 5500,
+      "unidade": "W",
+      "tipo": "estimado",
+      "origem": "Potência mais comum de chuveiros elétricos na posição inverno (127/220 V). Veja a etiqueta do seu chuveiro.",
+      "fonte": "https://idec.org.br/dicas-e-direitos/economia-com-aquecedor-solar"
+    },
+    "reducao_posicao_verao": {
+      "valor": 0.30,
+      "unidade": "fração (30%)",
+      "tipo": "oficial (orientação de órgão de defesa do consumidor/distribuidora)",
+      "origem": "Na posição verão o chuveiro consome cerca de 30% menos que na posição inverno.",
+      "fonte": "https://idec.org.br/consultas/dicas-e-direitos/saiba-como-economizar-energia-eletrica"
+    },
+    "meses_posicao_verao": {
+      "valor": 6,
+      "unidade": "meses por ano",
+      "tipo": "estimado",
+      "origem": "Premissa da equipe: posição verão de outubro a março, meses mais quentes em São Paulo.",
+      "fonte": "Premissa da equipe"
+    },
+    "minutos_banho_meta": {
+      "valor": 8,
+      "unidade": "min",
+      "tipo": "estimado",
+      "origem": "Meta de banho usada pela Cemig e por guias de economia (entre 5 e 8 minutos).",
+      "fonte": "https://www.cemig.com.br/wp-content/uploads/2025/09/Cartilha-Eficiencia-Energetica-Saiba-como-economizar-energia.pdf"
+    },
+    "fracao_solar": {
+      "valor": 0.70,
+      "unidade": "fração (70%)",
+      "tipo": "estimado (valor de projeto)",
+      "origem": "Fração solar anual de 70% usada no dimensionamento pela ABNT NBR 15569; estudo com EnergyPlus mediu redução média de 70% na energia para aquecer água.",
+      "fonte": "https://seer.ufrgs.br/ambienteconstruido/article/download/25706/21162"
+    },
+    "custo_aquecedor_solar_min": {
+      "valor": 3000,
+      "unidade": "R$",
+      "tipo": "estimado (faixa de mercado)",
+      "origem": "Faixa de preço de sistemas residenciais de baixa pressão.",
+      "fonte": "https://idec.org.br/dicas-e-direitos/economia-com-aquecedor-solar"
+    },
+    "custo_aquecedor_solar_max": {
+      "valor": 6000,
+      "unidade": "R$",
+      "tipo": "estimado (faixa de mercado)",
+      "origem": "Faixa de preço de sistemas residenciais de baixa pressão.",
+      "fonte": "https://idec.org.br/dicas-e-direitos/economia-com-aquecedor-solar"
+    },
+    "vida_util_coletor_anos": {
+      "valor": 15,
+      "unidade": "anos",
+      "tipo": "estimado",
+      "origem": "Coletores duram de 15 a 25 anos e o reservatório (boiler) de 10 a 15 anos. Usamos o menor valor.",
+      "fonte": "https://idec.org.br/dicas-e-direitos/economia-com-aquecedor-solar"
+    },
+    "desconto_assinatura_min": {
+      "valor": 0.10,
+      "unidade": "fração (10%)",
+      "tipo": "estimado (faixa de mercado)",
+      "origem": "Energia solar por assinatura (geração compartilhada) costuma dar de 10% a 20% de desconto.",
+      "fonte": "https://www.acessa.com/economia/2023/06/amp/154724-veja-os-pros-e-contras-do-servico-de-energia-solar-por-assinatura.html"
+    },
+    "desconto_assinatura_max": {
+      "valor": 0.20,
+      "unidade": "fração (20%)",
+      "tipo": "estimado (faixa de mercado)",
+      "origem": "Energia solar por assinatura (geração compartilhada) costuma dar de 10% a 20% de desconto.",
+      "fonte": "https://www.acessa.com/economia/2023/06/amp/154724-veja-os-pros-e-contras-do-servico-de-energia-solar-por-assinatura.html"
+    },
+    "fator_emissao_kg_kwh": {
+      "valor": 0.0599,
+      "unidade": "kg CO2eq/kWh",
+      "tipo": "oficial",
+      "origem": "Emissão média do setor elétrico brasileiro em 2024 (59,9 kg CO2eq/MWh), Balanço Energético Nacional 2025 (EPE).",
+      "fonte": "https://www.osetoreletrico.com.br/?p=164398"
+    },
+    "bandeira_amarela_kwh": {
+      "valor": 0.01885,
+      "unidade": "R$/kWh",
+      "tipo": "oficial",
+      "origem": "Acréscimo da bandeira amarela: R$ 1,885 a cada 100 kWh (ANEEL).",
+      "fonte": "https://tagdlaw.com.br/?p=16921"
+    },
+    "bandeira_vermelha1_kwh": {
+      "valor": 0.04463,
+      "unidade": "R$/kWh",
+      "tipo": "oficial",
+      "origem": "Acréscimo da bandeira vermelha patamar 1: R$ 4,463 a cada 100 kWh (ANEEL).",
+      "fonte": "https://canalsolar.com.br/conta-luz-ficara-mais-cara-sao-paulo/"
+    },
+    "calor_especifico_agua": {
+      "valor": 4186,
+      "unidade": "J/(kg·°C)",
+      "tipo": "constante física",
+      "origem": "Calor específico da água.",
+      "fonte": "Constante física"
+    },
+    "delta_t_banho": {
+      "valor": 20,
+      "unidade": "°C",
+      "tipo": "estimado",
+      "origem": "Aquecer a água de ~20 °C para ~40 °C (premissa da equipe).",
+      "fonte": "Premissa da equipe"
+    }
+  }
+}
